@@ -46,21 +46,22 @@ Book.prototype.info = function(){
 //Defines the function to add to library
 function addBookToLibrary(){
     //Gather book info on click
-    let book = {'title':bookTitle.value, 'author':bookAuthor.value, 'pages':bookPages.value, 'read':bookRead.value}
+    let book = {
+        'title':bookTitle.value, 
+        'author':bookAuthor.value, 
+        'pages':bookPages.value, 
+        'read':bookRead.value
+    }
     myLibrary.unshift(book);
-    console.log(myLibrary);
 }
 
 function newBook(){
     main.innerHTML = '';
 
-    myLibrary.forEach(book =>{
+    myLibrary.forEach((book, index) =>{
+        console.log(index);
         let bookCard = document.createElement('div');
-        myLibraryLength = myLibrary.length;
-        for (let i=0; i < myLibraryLength; i++){
-            console.log(i);
-            bookCard.setAttribute = ('id', 'i');
-        }
+        bookCard.id = index;
         bookCard.innerHTML = `<ul><li>` + book.title + `</li><li>` + book.author + `</li><li>` + book.pages + `</li><li>` + book.read +  `</li><li><button id="button-delete">X</button>`
         main.appendChild(bookCard);
     })
