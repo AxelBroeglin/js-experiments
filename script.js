@@ -4,19 +4,19 @@ let myLibrary = [
         'title':'Hobbit', 
         'author':'Tolkien', 
         'pages':'213', 
-        'read':'yes'
+        'read':'Yes'
     },
     {
         'title':'Dune', 
         'author':'Herbert', 
         'pages':'603', 
-        'read':'yes'
+        'read':'Yes'
     },
     {
         'title':'Surveiller et punir', 
         'author':'Foucault', 
         'pages':'213', 
-        'read':'no'
+        'read':'No'
     }
 ];
 
@@ -62,9 +62,8 @@ function generateLibrary(){
     //Iterates through the array
     myLibrary.forEach((book, index) =>{
         let bookCard = document.createElement('div');
-        book.id = index;
         //Each div has a list with the info :
-        bookCard.innerHTML = `<ul><li>` + book.title + `</li><li>` + book.author + `</li><li>` + book.pages + `</li><li>` + book.read +  `</li><li><button id="`+ book.id +`" class='button-delete'>X</button>`
+        bookCard.innerHTML = `<ul><li>` + book.title + `</li><li>` + book.author + `</li><li>` + book.pages + `</li><li><button class='button-read'>` + book.read +  `</button></li><li><button id="`+ index +`" class='button-delete'>X</button>`
         main.appendChild(bookCard);
     })
     //Delete button variable
@@ -75,6 +74,24 @@ function generateLibrary(){
             e.stopPropagation();
             //Takes clicked ID out of myLibrary 
             deletedBook = myLibrary.splice(index, 1);
+            //Recalls myLibrary
+            generateLibrary();
+        })
+    })
+    //Read button variable
+    let buttonRead = document.querySelectorAll('.button-read');
+    //Delete button function
+    buttonRead.forEach((button, index) => {
+        button.addEventListener('click', e => {
+            e.stopPropagation();
+            //Takes clicked ID out of myLibrary
+            if(myLibrary[index].read = 'Yes'){
+                myLibrary[index].read = 'No';
+            }if(myLibrary[index].read = 'No'){
+                myLibrary[index].read = 'Yes';
+            }
+            //break ?
+            console.log(myLibrary[index].author);
             //Recalls myLibrary
             generateLibrary();
         })
