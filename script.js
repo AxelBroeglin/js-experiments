@@ -64,7 +64,7 @@ function generateLibrary(){
         let bookCard = document.createElement('div');
         book.id = index;
         //Each div has a list with the info :
-        bookCard.innerHTML = `<ul><li>` + book.title + `</li><li>` + book.author + `</li><li>` + book.pages + `</li><li>` + book.read +  `</li><li><button class="button-delete">X</button>`
+        bookCard.innerHTML = `<ul><li>` + book.title + `</li><li>` + book.author + `</li><li>` + book.pages + `</li><li>` + book.read +  `</li><li><button id="`+ book.id +`" class='button-delete'>X</button>`
         main.appendChild(bookCard);
     })
 }
@@ -78,13 +78,20 @@ button.addEventListener('click', e => {
 })
 
 
-let buttonDelete = document.getElementsByClassName('button-delete');
+let buttonDelete = document.querySelectorAll('.button-delete');
 //Button to delete book
 console.log(buttonDelete);
-buttonDelete.addEventListener('click', e => {
-    e.stopPropagation();
-    console.log(this.id);
-    let deleteId = this.id;
-     myLibrary.filter(book => book.id != this.id);
-     generateLibrary();
+
+buttonDelete.forEach(button => {
+    button.addEventListener('click', e => {
+        e.stopPropagation();
+        
+        console.log(button.id);
+        let deleteId = button.id;
+        console.log(myLibrary);
+         myLibrary = myLibrary.splice(deleteId, 1);
+         console.log(myLibrary);
+
+         generateLibrary();
+})
 })
