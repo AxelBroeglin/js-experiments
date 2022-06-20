@@ -1,3 +1,28 @@
 body{
     background-color: blanchedalmond;
 }
+
+#main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#box-container{
+    width: 60vw;
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr; 
+    gap: 0% 0%; 
+    grid-template-areas: 
+      ". . ."
+      ". . ."
+      ". . ."; 
+}
+
+.box{
+    border: 1px solid black;
+    width: 20vw;
+    height: 20vw;
+}
