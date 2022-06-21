@@ -9,31 +9,31 @@ let boxArray = [
     },    
     {
         'box' : 'box',
-        'sign' : ' '
+        'sign' : ''
     },    
     {
         'box' : 'box',
-        'sign' : ' '    
+        'sign' : ''    
     },    
     {
         'box' : 'box',
-        'sign' : ' '    
+        'sign' : ''    
     },    
     {
         'box' : 'box',
-        'sign' : ' '    
+        'sign' : ''    
     },    
     {
         'box' : 'box',
-        'sign' : ' '    
+        'sign' : ''    
     },    
     {
         'box' : 'box',
-        'sign' : ' '    
+        'sign' : ''    
     },    
     {
         'box' : 'box',
-        'sign' : ' '        
+        'sign' : ''        
     }
 ];
 
@@ -50,13 +50,21 @@ const board = (() => {
     return {box};
 })();
 
+
 function fillBox(){
-    console.log(boxArray.sign)
-    if(boxArray.sign != 'X' || 'O'){
-        console.log('hello');
-    }else{
-        console.log('pas hello')
-    }
+
+//avec this ?
+
+    boxArray.forEach((sign, index) => {
+        const cardId = this.index;
+        console.log(cardId)
+        console.log(boxArray[index].sign)
+        if(boxArray[index].sign = 'X' || 'O'){
+            console.log('hello');
+        }else{
+            console.log('pas hello')
+        }
+    })
 }
 
 
