@@ -47,10 +47,18 @@ const board = (() => {
     return {box};
 })();
 
-
+//To get sign (could work to get index if put in board and id=)
 for (var i = 0; i < boxArray.length; i++){
-    console.log(boxArray[i].sign);
+    console.log(boxArray[i]);
   }
+
+
+  //Does not work for some reason
+let boxe = document.querySelector('.box');
+boxe.addEventListener('click', e => {
+console.log(boxe.index);
+})
+
 
 
 
