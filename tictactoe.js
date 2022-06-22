@@ -21,7 +21,7 @@ let boxArray = [
     },    
     {
         'box' : 'box',
-        'sign' : ''    
+        'sign' : 'O'    
     },    
     {
         'box' : 'box',
@@ -36,27 +36,22 @@ let boxArray = [
         'sign' : ''        
     }
 ];
-console.log(boxArray);
-//BOARD
+
+//Creation of the board with the sign value in the board array
 const board = (() => {
-    const box = boxArray.forEach(box => {
+        for (var i = 0; i < boxArray.length; i++){
         const boxDiv = document.createElement('div');
         boxDiv.classList.add('box');
         document.querySelector('#box-container').appendChild(boxDiv);
-        });
-    return {box};
-})();
-
-//To get sign (could work to get index if put in board and id=)
-for (var i = 0; i < boxArray.length; i++){
-    console.log(boxArray[i]);
-  }
+        boxDiv.innerHTML = boxArray[i].sign;
+      };
+  })();
 
 
   //Does not work for some reason
 let boxe = document.querySelector('.box');
 boxe.addEventListener('click', e => {
-console.log(boxe.index);
+console.log('test');
 })
 
 
