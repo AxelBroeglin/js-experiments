@@ -37,10 +37,7 @@ let boxArray = [
     }
 ];
 
-//Function 
-const clickclick =  function clickOnDiv() {
-  console.log(this.innerHTML)
-}
+
 
 //Creation of the board with the sign value in the board array
 const board = (() => {
@@ -49,11 +46,14 @@ const board = (() => {
         boxDiv.classList.add('box');
         document.querySelector('#box-container').appendChild(boxDiv);
         boxDiv.innerHTML = boxArray[i].sign;
-        boxDiv.addEventListener('click', clickclick);
+        boxDiv.addEventListener('click', clickOnDiv);
       };
   })();
 
-
+//Function 
+  function clickOnDiv() {
+  console.log(this.innerHTML)
+}
 
 //PLAYERS
 const playersFactory = (name, sign) => {
@@ -68,7 +68,7 @@ const player2 = playersFactory('Player 2', 'O');
 //checks if 3 in a row
 //other player (count++, even/odd number to define who plays ?)
 
-  const Player = (name, level) => {
+  const Gameflow = (name, level) => {
     let health = level * 2;
     const getLevel = () => level;
     const getName  = () => name;
@@ -94,7 +94,7 @@ const player2 = playersFactory('Player 2', 'O');
     return {attack, damage, getLevel, getName};
   };
   
-  const jimmie = Player('jim', 10);
-  const badGuy = Player('jeff', 5);
+  const jimmie = Gameflow('jim', 10);
+  const badGuy = Gameflow('jeff', 5);
   jimmie.attack(badGuy); // jim has damaged jeff
 
