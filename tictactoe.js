@@ -37,6 +37,11 @@ let boxArray = [
     }
 ];
 
+//Function 
+const clickclick =  function clickOnDiv() {
+  console.log(this.innerHTML)
+}
+
 //Creation of the board with the sign value in the board array
 const board = (() => {
         for (var i = 0; i < boxArray.length; i++){
@@ -44,16 +49,9 @@ const board = (() => {
         boxDiv.classList.add('box');
         document.querySelector('#box-container').appendChild(boxDiv);
         boxDiv.innerHTML = boxArray[i].sign;
+        boxDiv.addEventListener('click', clickclick);
       };
   })();
-
-
-  //Does not work for some reason
-let boxe = document.querySelector('.box');
-boxe.addEventListener('click', e => {
-console.log('test');
-})
-
 
 
 
