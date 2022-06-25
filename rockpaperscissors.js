@@ -1,16 +1,22 @@
-const body = document.getElementById('body');
-const button = document.querySelectorAll('button');
+const playerSelection = 'rock';
+const computerSelection = computerPlay();
 
-function computerChoice() {
-
-}
-
-function playerSelection() {
+function playRound(playerSelection, computerSelection) {
 
 }
 
-function gameFlow() {
 
+function computerPlay(){
+    let computerChoice = Math.floor(Math.random() * 3) + 1;
+    switch (computerChoice) {
+        case 1:
+            computerChoice = 'rock';
+          break;
+        case 2:
+            computerChoice = 'paper';
+          break;
+        default:
+            computerChoice = 'scissors';
+      }
+    return computerChoice;
 }
-
-gameFlow();
