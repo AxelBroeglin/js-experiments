@@ -3,7 +3,7 @@ const board = document.getElementById('board');
 
 const X_CLASS = 'x';
 const CIRCLE_CLASS = 'circle';
-let circleTurn;
+let circleTurn; //If true : circle's turn, if not X's
 
 const WINNING_COMBINATIONS = [
   [0, 1, 2],
@@ -38,6 +38,7 @@ function startGame() {
 
 function handleClick(e){
   const cell = e.target;
+  //If it is circleTurn, return CIRCLE_CLASS, otherwise X_CLASS
   const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
   // Place Mark which takes 2 args, just created
   placeMark(cell, currentClass)
